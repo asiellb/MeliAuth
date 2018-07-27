@@ -58,6 +58,89 @@ If the user agreed he will be redirected to 'MELI_SUCCESS_REDIRECT=home' (You ca
 If not agreed or if any error, he will be redirected to same route, but you will have another session variable named 'MeliErrorData'.
 
 
+At this stage your are ready to make call to the API on behalf of the user.
+
+### Making GET calls
+
+    use Farena\MeliAuth\MeliAuth;
+    
+    if(session()->has('MeliData')){
+            $data = session('MeliData')['body'];
+    
+            $meli = ( isset($data->refresh_token) ) ? new MeliAuth($data->access_token,$data->refresh_token) : new MeliAuth($data->access_token);
+    
+            $params = ['access_token'=>$data->access_token];
+            if (isset($data->refresh_token))
+                $params[] = ['refresh_token'=>$data->refresh_token];
+    
+            $result = $meli->get('/users/me', $params);
+            #If you wish , you can get an associative array with param $assoc = true Example:
+            $result = $meli->get('/users/me', $params, true);
+    
+            return $result;
+    }
+    
+### Making POST calls
+
+    use Farena\MeliAuth\MeliAuth;
+    
+    if(session()->has('MeliData')){
+            $data = session('MeliData')['body'];
+    
+            $meli = ( isset($data->refresh_token) ) ? new MeliAuth($data->access_token,$data->refresh_token) : new MeliAuth($data->access_token);
+    
+            $params = ['access_token'=>$data->access_token];
+            if (isset($data->refresh_token))
+                $params[] = ['refresh_token'=>$data->refresh_token];
+    
+            #this body will be converted into json for you
+            $body = array('foo' => 'bar', 'bar' => 'foo');
+            
+            $response = $meli->post('/items', $body, $params);
+    
+            return $response;
+    }
+    
+### Making PUT calls
+
+    use Farena\MeliAuth\MeliAuth;
+    
+    if(session()->has('MeliData')){
+            $data = session('MeliData')['body'];
+    
+            $meli = ( isset($data->refresh_token) ) ? new MeliAuth($data->access_token,$data->refresh_token) : new MeliAuth($data->access_token);
+    
+            $params = ['access_token'=>$data->access_token];
+            if (isset($data->refresh_token))
+                $params[] = ['refresh_token'=>$data->refresh_token];
+    
+            #this body will be converted into json for you
+            $body = array('foo' => 'bar', 'bar' => 'foo');
+            
+            $response = $meli->put('/items', $body, $params);
+    
+            return $response;
+    }
+    
+### Making DELETE calls
+
+    use Farena\MeliAuth\MeliAuth;
+    
+    if(session()->has('MeliData')){
+            $data = session('MeliData')['body'];
+    
+            $meli = ( isset($data->refresh_token) ) ? new MeliAuth($data->access_token,$data->refresh_token) : new MeliAuth($data->access_token);
+    
+            $params = ['access_token'=>$data->access_token];
+            if (isset($data->refresh_token))
+                $params[] = ['refresh_token'=>$data->refresh_token];
+    
+            $response = $meli->delete('/questions/123', $params)
+    
+            return $response;
+    }
+    
+
 ## License
 
 Farena MeliAuth is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
