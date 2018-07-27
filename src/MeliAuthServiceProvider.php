@@ -13,6 +13,7 @@ class MeliAuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
         $this->mergeConfigFrom(
             __DIR__.'/config/MeliAuth.php', 'MeliAuth'
