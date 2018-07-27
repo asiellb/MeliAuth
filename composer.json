@@ -1,0 +1,26 @@
+{
+    "name": "farena/meli-auth",
+    "description": "Laravel wrapper for MercadoLibre SDK",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Federico Arena",
+            "email": "info@silver-graph.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": { },
+    "autoload": {
+        "psr-4": {
+            "Farena\\MeliAuth\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Farena\\MeliAuth\\MeliAuthServiceProvider"
+            ]
+        }
+    }
+}
