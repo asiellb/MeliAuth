@@ -1,4 +1,7 @@
 # Farena MeliAuth
+[![GitHub issues](https://img.shields.io/github/issues/farena/MeliAuth.svg?style=plastic)](https://github.com/farena/MeliAuth/issues)
+[![GitHub forks](https://img.shields.io/github/forks/farena/MeliAuth.svg?style=plastic)](https://github.com/farena/MeliAuth/network)
+[![GitHub stars](https://img.shields.io/github/stars/farena/MeliAuth.svg?style=plastic)](https://github.com/farena/MeliAuth/stargazers)
 
 ## Introduction
 MeliAuth is a Laravel Wrapper for MercadoLibre PHP SDK.
