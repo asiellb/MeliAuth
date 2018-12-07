@@ -71,7 +71,7 @@ At this stage your are ready to make call to the API on behalf of the user.
     
             $params = ['access_token'=>$data->access_token];
             if (isset($data->refresh_token))
-                $params[] = ['refresh_token'=>$data->refresh_token];
+                $params['refresh_token'] = $data->refresh_token;
     
             $result = $meli->get('/users/me', $params);
             #If you wish , you can get an associative array with param $assoc = true Example:
@@ -91,7 +91,7 @@ At this stage your are ready to make call to the API on behalf of the user.
     
             $params = ['access_token'=>$data->access_token];
             if (isset($data->refresh_token))
-                $params[] = ['refresh_token'=>$data->refresh_token];
+                $params['refresh_token'] = $data->refresh_token;
     
             #this body will be converted into json for you
             $body = array('foo' => 'bar', 'bar' => 'foo');
@@ -112,7 +112,7 @@ At this stage your are ready to make call to the API on behalf of the user.
     
             $params = ['access_token'=>$data->access_token];
             if (isset($data->refresh_token))
-                $params[] = ['refresh_token'=>$data->refresh_token];
+                $params['refresh_token'] = $data->refresh_token;
     
             #this body will be converted into json for you
             $body = array('foo' => 'bar', 'bar' => 'foo');
@@ -133,7 +133,7 @@ At this stage your are ready to make call to the API on behalf of the user.
     
             $params = ['access_token'=>$data->access_token];
             if (isset($data->refresh_token))
-                $params[] = ['refresh_token'=>$data->refresh_token];
+                $params['refresh_token'] = $data->refresh_token;
     
             $response = $meli->delete('/questions/123', $params)
     
